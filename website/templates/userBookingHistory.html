@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <title>Booking History</title>
+</head>
+
+<header>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand nav" href="#">
+                <img src="img/navbarLogo.PNG" alt="" width="120" height="45">
+                <!-- <h1 style="font-size:30px;">GENERIC FESTIVAL</h1> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="eventCreation.html">Event Creation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="userBookingHistory.html">Booking
+                            History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h1>Booking history</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="col-8">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Event Name </th>
+                            <th scope="col">Date booked</th>
+                            <th scope="col">Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">#1212</th>
+                            <td>AC/DC</td>
+                            <td>19/03/21</td>
+                            <td>
+                                <img src="img/rock1.jpg" width="200" height="200" class="rounded float-start"
+                                    alt="Not working lmao">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#1120</th>
+                            <td>Daft Punk</td>
+                            <td>05/01/2021</td>
+                            <td>
+                                <img src="img/edm1.jpg" width="200" height="200" class="rounded float-start"
+                                alt="Not working lmao">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-white" style="background-color: #272727;">
+
+        <div class="container p-4 pb-0">
+
+            <section class="">
+                <p class="d-flex justify-content-center align-items-center">
+                    <span class="me-3">Register</span>
+                    <button type="button" class="btn btn-outline-light btn-rounded">
+                        Sign up!
+                    </button>
+                </p>
+            </section>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright
+        </div>
+    </footer>
+
+</body>
+
+</html>

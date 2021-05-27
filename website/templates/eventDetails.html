@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+
+  <title>AC/DC</title>
+</head>
+
+<header>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand nav" href="#">
+        <img src="img/navbarLogo.PNG" alt="" width="120" height="45">
+        <!-- <h1 style="font-size:30px;">GENERIC FESTIVAL</h1> -->
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="eventCreation.html">Event Creation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="userBookingHistory.html">Booking History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+
+
+
+  <div class="container-fluid">
+    <div class="row justify-content-center" style="padding-bottom: 20px;">
+      <div class="col-lg-4">
+        <img src="img/rock1.jpg" class="rounded float-start img-fluid">
+      </div>
+      <div class="col-lg-4">
+        <h3>AC/DC Power up Tour</h3>
+        <h4>Details - 30 May</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget dui sodales, scelerisque odio a,
+          aliquam odio. Sed vel nisl vitae sapien commodo faucibus id eu lectus. Sed aliquet in metus vitae vestibulum.
+          Vivamus tortor nulla, ultrices sed ullamcorper at, iaculis ut odio. Phasellus dignissim mauris eget venenatis
+          eleifend. Integer dictum a metus non scelerisque. In euismod justo et arcu scelerisque commodo.
+        </p>
+
+        <!-- DOES NOT WORK -->
+
+        <div>
+          <button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="staticmodal">Book Now!</button>
+        
+          <div class="modal fade" id="staticmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Please Work</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- DOES NOT WORK -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="mb-3">
+
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add a comment!">
+          <div style="padding-top: 10px;">
+            <label for="exampleFormControlInput1" class="form-label">Submit</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">1st May -- Mr Ipsum
+Praesent aliquam eros at commodo condimentum. Integer sed nulla orci. Aenean eu tempus tellus, et varius nibh. Aenean molestie, sem vitae molestie accumsan, nibh tellus sollicitudin purus, non malesuada sem erat vel mauris.
+          </textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <section class="">
+
+    <footer class="text-center text-white" style="background-color: #272727;">
+
+      <div class="container p-4 pb-0">
+
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Register</span>
+            <button type="button" class="btn btn-outline-light btn-rounded">
+              Sign up!
+            </button>
+          </p>
+        </section>
+      </div>
+
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
