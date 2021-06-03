@@ -5,8 +5,7 @@ from datetime import datetime
 from sqlalchemy.types import Boolean
 
 class User(db.Model):
-    __tablename__='users' # good practice to specify table name
-    
+    __tablename__='Users' # good practice to specify table name
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -16,8 +15,7 @@ class User(db.Model):
     admin = db. Column(db.Boolean)
 
 class events (db.Model):
-    __tablename__= 'Events'
-
+    __tablename__='Events'
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -31,8 +29,6 @@ def __repr__(self):
 
 class booking (db.Model):
    __tablename__='Bookings'
-
-
    __table_args__ = {'extend_existing': True}
 
    event_id = db.Column(db.Integer, db.ForeignKey('Events.id') )
@@ -42,17 +38,13 @@ class booking (db.Model):
    bookid = db.Column(db.Integer, primary_key = True)
 
 class comments (db.Model):
-    __tablename__ = 'comments'
-
-
+    __tablename__ ='Comments'
     __table_args__ = {'extend_existing': True}
-
 
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(400))
     created_at = db.Column(db.DateTime, default=datetime.now())
-    
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
     event_id = db.Column(db.Integer,db.ForeignKey('Events.id'))
 def __repr__(self):
     return "<Comment: {}>".format(self.text)
