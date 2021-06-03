@@ -7,19 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-
 
   <title>AC/DC</title>
 </head>
@@ -53,12 +46,6 @@
 </header>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
-
-
-
 
   <div class="container-fluid">
     <div class="row justify-content-center" style="padding-bottom: 20px;">
@@ -74,83 +61,91 @@
           eleifend. Integer dictum a metus non scelerisque. In euismod justo et arcu scelerisque commodo.
         </p>
 
-        <!-- DOES NOT WORK -->
 
         <div>
-          <button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="staticmodal">Book Now!</button>
-        
-          <div class="modal fade" id="staticmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
+          <button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="#staticmodal">Book
+            Now!</button>
+
+          <div class="modal fade" id="staticmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                  <h5 class="modal-title" id="staticBackdropLabel">Booking</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Please Work</p>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Tickets</span>
+                    <input type="text" class="form-control" placeholder="Quantity of ticets" aria-label="Tickets"
+                      aria-describedby="basic-addon1">
+                  </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary">Book</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-        <!-- DOES NOT WORK -->
-
       </div>
     </div>
   </div>
-
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-4">
         <div class="mb-3">
 
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add a comment!">
-          <div style="padding-top: 10px;">
-            <label for="exampleFormControlInput1" class="form-label">Submit</label>
+          <!-- Comments -->
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Comments</h1>
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">1st May -- Mr Ipsum
-Praesent aliquam eros at commodo condimentum. Integer sed nulla orci. Aenean eu tempus tellus, et varius nibh. Aenean molestie, sem vitae molestie accumsan, nibh tellus sollicitudin purus, non malesuada sem erat vel mauris.
-          </textarea>
-        </div>
 
+          <div>
+            {{wtf.quick_form(form, "/events/{0}/comment".format(1))}}
+          </div>
+
+          {% for comment in destination.comments %}
+          <div class="row border-bottom">
+            <div class="col-md-12">
+              <b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at}}</span></b>
+              <p>{{comment.text}}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
       </div>
     </div>
-  </div>
 
-  <section class="">
+    <section class="">
 
-    <footer class="text-center text-white" style="background-color: #272727;">
+      <footer class="text-center text-white" style="background-color: #272727;">
 
-      <div class="container p-4 pb-0">
+        <div class="container p-4 pb-0">
 
-        <section class="">
-          <p class="d-flex justify-content-center align-items-center">
-            <span class="me-3">Register</span>
-            <button type="button" class="btn btn-outline-light btn-rounded">
-              Sign up!
-            </button>
-          </p>
-        </section>
-      </div>
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Register</span>
+              <button type="button" class="btn btn-outline-light btn-rounded">
+                Sign up!
+              </button>
+            </p>
+          </section>
+        </div>
 
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2021 Copyright
-      </div>
-    </footer>
-  </section>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright
+        </div>
+      </footer>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
