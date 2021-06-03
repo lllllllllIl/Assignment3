@@ -8,8 +8,9 @@ class User(db.Model):
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    admin = db. Column(db.boolean)
 
-class ev_ent (db.Model):
+class events (db.Model):
       __tablename__= 'Events'
       id = db.Column(db.Integer, primary_key=True)
       name = db.Column(db.String(80))
