@@ -11,16 +11,16 @@ def index():
 
     return render_template('index.html', Event = events)
 
-@bp.route('/EventCreation')
+@bp.route('/eventCreation.html')
 def eventCreation():
 
-    return render_template('eventCration.html')
+    return render_template('eventCreation.html')
 
-@bp.route('/EventDetails')
+@bp.route('/eventDetails.html')
 def eventDetails():
     return render_template('eventDetails.html')
 
-@bp.route('/login', methods=['GET', 'POST'])
+@bp.route('/login.html', methods=['GET', 'POST'])
 def login():
     #if 'email' in session:
     #   return redirect('/')
@@ -33,7 +33,7 @@ def login():
 
     return render_template('login.html')
 
-@bp.route('/logout')
+@bp.route('/logout.html')
 def logout():
     if 'email' in session:
         session.pop('email', None)
