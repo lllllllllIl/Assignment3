@@ -2,14 +2,16 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 ) 
 from werkzeug.security import generate_password_hash,check_password_hash
+from wtforms.fields.simple import PasswordField
 #from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required,logout_user
 from website import db
 from .models import User
-
+from flask import Flask, session
 #create a blueprint
 bp = Blueprint('auth', __name__)
+
 
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -23,7 +25,7 @@ def login():
         u1 = User.query.filter_by(name=user_name).first()
         #if there is no user with that name
         if u1 is None:
-            error='Incorrect user name'
+            error='Incorrect user name' 
         #check the password - notice password hash function
         elif not check_password_hash(u1.password_hash, password): # takes the hash and password
             error='Incorrect password'
@@ -66,10 +68,43 @@ def register():
 def logout():
     logout_user()
     return 'You have been logged out'
+#Creating login user 
+bp.route('/login', methods=['GET', 'POST'])
+def login_user():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
 
+        try:
+            if User.is_login_valid(email, password):
+                session['email'] = email
+                return redirect(url_for("home"))
+        except Exception as e:
+            return render_template("users/login_error.jinja2")
+        
+    return render_template("'user.html', form=login_form, heading='Login'")
 
+#Creating the access and determining the acces controls
+ACCESS = {
+    'guest': 0,
+    'user': 1,
+    'admin': 2
+}
 
+class User():
+    def __init__(self, name, email, password, access=ACCESS['user']):
+        self.name = name
+        self.email = email
+        self.password = password
+        self.access = access
+    
+    def is_admin(self):
+        return self.access == ACCESS['admin']
 
+    def allowed(self, access_level):
+        return self.access >= access_level
+
+        
 # this is the hint for a login function
 # @bp.route('/login', methods=['GET', 'POST'])
 # def authenticate(): #view function
