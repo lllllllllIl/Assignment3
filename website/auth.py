@@ -9,6 +9,8 @@ from flask_login import login_user, login_required,logout_user
 from website import db
 from .models import User
 from flask import Flask, session
+from flask_login import UserMixin
+
 #create a blueprint
 bp = Blueprint('auth', __name__)
 
@@ -43,9 +45,9 @@ def register():
     #the validation of form submis is fine
     if (register.validate_on_submit() == True):
             #get username, password and email from the form
-            uname = register.username.data
+            uname = register.user_name.data
             pwd = register.password.data
-            email=register.email.data
+            email=register.email_id.data
             #check if a user exists
             u1 = User.query.filter_by(name=uname).first()
             if u1:

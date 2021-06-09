@@ -3,8 +3,10 @@ from . import db
 #We use ev_ent because event is a used term
 from datetime import datetime
 from sqlalchemy.types import Boolean
+from flask_login import UserMixin
 
-class User(db.Model):
+
+class User(db.Model, UserMixin):
     __tablename__='Users' # good practice to specify table name
     __table_args__ = {'extend_existing': True}
 
@@ -23,6 +25,7 @@ class events (db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     date = db.Column(db.DateTime)
+    comments = db.relationship('comments', backref='event')
 
 def __repr__(self): 
     return "<Name: {}>".format(self.name)
