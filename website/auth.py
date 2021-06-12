@@ -3,14 +3,13 @@ from flask import (
 ) 
 from werkzeug.security import generate_password_hash,check_password_hash
 from wtforms.fields.simple import PasswordField
-from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required,logout_user
 from website import db
-from .models import User
+from .models import Users
 from flask import Flask, session
 from flask_login import UserMixin
-from sqlalchemy import query
+
 
 
 #create a blueprint
@@ -24,9 +23,9 @@ def login():
     error=None
     if(login_form.validate_on_submit()==True):
         #get the username and password from the database
-        user_name = login_form.username.data
+        user_name = login_form.user_name.data
         password = login_form.password.data
-        u1 = User.query.filter_by(name=user_name).first()
+        u1 = Users.query.filter_by(name=user_name).first()
         #if there is no user with that name
         if u1 is None:
             error='Incorrect user name' 
@@ -36,7 +35,7 @@ def login():
         if error is None:
             #all good, set the login_user of flask_login to manage the user
             login_user(u1)
-            return redirect(url_for('main.home'))
+            return redirect(url_for('main.index'))
         else:
             flash(error)
     return render_template('user.html', form=login_form, heading='Login')
@@ -51,18 +50,18 @@ def register():
             pwd = register.password.data
             email=register.email_id.data
             #check if a user exists
-            u1 = User.query.filter_by(name=uname).first()
+            u1 = Users.query.filter_by(name=uname).first()
             if u1:
                 flash('User name already exists, please login')
                 return redirect(url_for('auth.login'))
             # don't store the password - create password hash
             pwd_hash = generate_password_hash(pwd)
             #create a new user model object
-            new_user = User(name=uname, password_hash=pwd_hash, emailid=email)
+            new_user = Users(name=uname, password_hash=pwd_hash, emailid=email)
             db.session.add(new_user)
             db.session.commit()
             #commit to the database and redirect to HTML page
-            return redirect(url_for('main.home'))
+            return redirect(url_for('main.index'))
     #the else is called when there is a get message
     else:
         return render_template('user.html', form=register, heading='Register')

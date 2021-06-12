@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
-from .models import events
+from .models import Events
 
 
 bp = Blueprint('main', __name__)
@@ -7,9 +7,9 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def index():
-    Event = events.query.all()
+    Event = Events.query.all()
 
-    return render_template('index.html', Event = events)
+    return render_template('index.html', Event = Events)
 
 @bp.route('/eventCreation.html')
 def eventCreation():

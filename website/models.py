@@ -6,7 +6,7 @@ from sqlalchemy.types import Boolean
 from flask_login import UserMixin
 
 
-class User(db.Model, UserMixin):
+class Users(db.Model, UserMixin):
     __tablename__='Users' # good practice to specify table name
     __table_args__ = {'extend_existing': True}
 
@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     admin = db. Column(db.Boolean)
 
-class events (db.Model):
+class Events (db.Model):
     __tablename__='Events'
     __table_args__ = {'extend_existing': True}
 
@@ -25,12 +25,12 @@ class events (db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     date = db.Column(db.DateTime)
-    comments = db.relationship('comments', backref='event')
+    comments = db.relationship('Comments', backref='event')
 
 def __repr__(self): 
     return "<Name: {}>".format(self.name)
 
-class booking (db.Model):
+class Bookings (db.Model):
    __tablename__='Bookings'
    __table_args__ = {'extend_existing': True}
 
@@ -40,7 +40,7 @@ class booking (db.Model):
    date = db.Column(db.DATE)
    bookid = db.Column(db.Integer, primary_key = True)
 
-class comments (db.Model):
+class Comments (db.Model):
     __tablename__ ='Comments'
     __table_args__ = {'extend_existing': True}
 
