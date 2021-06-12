@@ -25,7 +25,7 @@ class events (db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     date = db.Column(db.DateTime)
-    comments = db.relationship('Comment', backref='events')
+    comments = db.relationship('Comments', backref='events')
 
 def __repr__(self): 
     return "<Name: {}>".format(self.name)
