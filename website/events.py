@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from .models import events
+from .models import events, comments 
 from .forms import eventsForm, CommentForm
 from . import db
 
