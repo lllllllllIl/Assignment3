@@ -28,7 +28,7 @@ def login():
         u1 = Users.query.filter_by(name=user_name).first()
         #if there is no user with that name
         if u1 is None:
-            error='Incorrect user name' 
+            error='Incorrect username' 
         #check the password - notice password hash function
         elif not check_password_hash(u1.password_hash, password): # takes the hash and password
             error='Incorrect password'
@@ -73,7 +73,7 @@ def logout():
     logout_user()
     return 'You have been logged out'
 
-#Creating the access and determining the access controls
+#Creating the access and determining the acces controls
 ACCESS = {
     'guest': 0,
     'user': 1,
