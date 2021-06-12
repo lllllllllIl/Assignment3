@@ -27,5 +27,14 @@ def create():
 
     return render_template('templates/eventCreation.html', form=form)
 
+def get_event():
+    b_desc = """ACDC new up and coming show, for sure to 
+                pump you up and get that rock and roll flowing 
+                through your bones, be there or be square"""
+    image_loc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFyC8pBJI2AAHLpAVih41_yWx2xxLleTtdshAdk1HOZQd9ZM8-Ag'
+    event = events('ACDC', b_desc, image_loc, '$100')
+    comment = comments("User1", "Seen them 3 times already, best band ever",'2021-12-06 4:00:00')
+    event.set_comments(comments)
 
+    return event
 
