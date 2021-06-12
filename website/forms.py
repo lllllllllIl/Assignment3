@@ -30,7 +30,7 @@ class RegisterForm(FlaskForm):
     submitCustomer = SubmitField("Register As Customer")
     submitAdmin = SubmitField("Register As Admin")
 
-class eventsForm(FlaskForm):
+class EventsForm(FlaskForm):
     name = StringField('Evemt', validators=[InputRequired()])
     description = TextAreaField('Description', validators=[InputRequired()])
     image = StringField('Cover Image', validators=[InputRequired()])

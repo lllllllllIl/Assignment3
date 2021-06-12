@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from .models import Events, Comments 
-from .forms import eventsForm, CommentForm
+from .forms import EventsForm, CommentForm
 from . import db
 
 bp = Blueprint('events', __name__, url_prefix='/events')
@@ -14,7 +14,7 @@ def show(id):
 @bp.route('/create', methods=['GET', 'POST'])
 def create():
     print("Method type: ", request.method)
-    form = eventsForm()
+    form = EventsForm()
 
     if form.validate_on_submit():
         event = Events(name=form.name.data,
@@ -34,7 +34,7 @@ def get_event():
     image_loc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFyC8pBJI2AAHLpAVih41_yWx2xxLleTtdshAdk1HOZQd9ZM8-Ag'
     event = Events('ACDC', b_desc, image_loc, '$100')
     comment = Comments("User1", "Seen them 3 times already, best band ever",'2021-12-06 4:00:00')
-    event.set_comments(Comments)
+    event.set_comments(comment)
 
     return event
 
