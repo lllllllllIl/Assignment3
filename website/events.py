@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from .models import events, comments 
+from .models import Events, Comments 
 from .forms import eventsForm, CommentForm
 from . import db
 
@@ -7,7 +7,7 @@ bp = Blueprint('events', __name__, url_prefix='/events')
 
 @bp.route('/<id>')
 def show(id):
-    event = events.query.filter_by(id=id).first()
+    event = Events.query.filter_by(id=id).first()
     commentForm = CommentForm()
     return render_template('templates/eventDetails.html', event=event, form=commentForm)
 
@@ -17,7 +17,7 @@ def create():
     form = eventsForm()
 
     if form.validate_on_submit():
-        event = events(name=form.name.data,
+        event = Events(name=form.name.data,
                         description=form.description.data,
                         image=form.image.data,
                         currency=form.currency.data)
@@ -32,9 +32,9 @@ def get_event():
                 pump you up and get that rock and roll flowing 
                 through your bones, be there or be square"""
     image_loc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFyC8pBJI2AAHLpAVih41_yWx2xxLleTtdshAdk1HOZQd9ZM8-Ag'
-    event = events('ACDC', b_desc, image_loc, '$100')
-    comment = comments("User1", "Seen them 3 times already, best band ever",'2021-12-06 4:00:00')
-    event.set_comments(comments)
+    event = Events('ACDC', b_desc, image_loc, '$100')
+    comment = Comments("User1", "Seen them 3 times already, best band ever",'2021-12-06 4:00:00')
+    event.set_comments(Comments)
 
     return event
 
