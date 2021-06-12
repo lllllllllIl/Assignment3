@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% import "boostrap/wtf.html" as wtf %}
 <!doctype html>
 <html lang="en">
 
@@ -17,6 +19,7 @@
   <title>Event Creation</title>
 </head>
 
+{% block header %}
 <header>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -44,6 +47,8 @@
     </div>
   </nav>
 </header>
+{% endblock %}
+{% block content %}
 <body>
 
 <div class="container-fluid" style="padding: 30px;">
@@ -129,5 +134,5 @@
         </footer>
       </section>
     </body>
-    
+    {% endblock %}
     </html>
