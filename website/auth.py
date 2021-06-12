@@ -62,6 +62,7 @@ def register():
             new_user = Users(name=uname, password_hash=pwd_hash, emailid=email, admin=_admin)
             db.session.add(new_user)
             db.session.commit()
+            flash(f'Successfully created account {new_user.name}!')
             #commit to the database and redirect to HTML page
             return redirect(url_for('main.index'))
     #the else is called when there is a get message
