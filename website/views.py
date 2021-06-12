@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
-from .models import Events
-
+from sqlalchemy.sql.sqltypes import NullType
+from .models import Events, Users
+from . import db
 
 bp = Blueprint('main', __name__)
 
@@ -13,8 +14,13 @@ def index():
 
 @bp.route('/eventCreation.html')
 def eventCreation():
+    isAdmin = request.form.get('admin')
+    if isAdmin == 0 or NullType:
+        redirect(url_for('main.index'))
 
-    return render_template('eventCreation.html')
+    else:    
+    
+        return render_template('eventCreation.html')
 
 @bp.route('/eventDetails.html')
 def eventDetails():
