@@ -3,13 +3,15 @@ from flask import (
 ) 
 from werkzeug.security import generate_password_hash,check_password_hash
 from wtforms.fields.simple import PasswordField
-#from .models import User
+from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required,logout_user
 from website import db
 from .models import User
 from flask import Flask, session
 from flask_login import UserMixin
+from sqlalchemy import query
+
 
 #create a blueprint
 bp = Blueprint('auth', __name__)
