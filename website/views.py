@@ -18,9 +18,7 @@ def eventCreation():
     if isAdmin == 0 or NullType:
         redirect(url_for('main.index'))
 
-    else:    
-    
-        return render_template('eventCreation.html')
+     return render_template('eventCreation.html')
 
 @bp.route('/eventDetails.html')
 def eventDetails():
