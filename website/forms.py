@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from sqlalchemy.sql.sqltypes import String
 from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
+from wtforms.widgets.core import CheckboxInput
 
 
 #creates the login information
@@ -26,7 +27,8 @@ class RegisterForm(FlaskForm):
     confirm = PasswordField("Confirm Password")
 
     #submit button
-    submit = SubmitField("Register")
+    submitCustomer = SubmitField("Register As Customer")
+    submitAdmin = SubmitField("Register As Admin")
 
 class eventsForm(FlaskForm):
     name = StringField('Evemt', validators=[InputRequired()])
