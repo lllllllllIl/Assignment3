@@ -10,7 +10,8 @@ bp = Blueprint('main', __name__)
 def index():
     Event = Events.query.all()
 
-    return render_template('index.html', Event = Events)
+    return render_template('index.html', Event=Events)
+
 
 @bp.route('/eventCreation.html')
 def eventCreation():
@@ -18,7 +19,7 @@ def eventCreation():
     if isAdmin == 0 or NullType:
         redirect(url_for('main.index'))
 
-     return render_template('eventCreation.html')
+    return render_template('eventCreation.html')
 
 @bp.route('/eventDetails.html')
 def eventDetails():
@@ -26,7 +27,7 @@ def eventDetails():
 
 @bp.route('/login.html', methods=['GET', 'POST'])
 def login():
-    #if 'email' in session:
+    # if 'email' in session:
     #   return redirect('/')
     
     email = request.values.get('email')
