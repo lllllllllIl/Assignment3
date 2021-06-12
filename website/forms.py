@@ -1,5 +1,7 @@
 
+from threading import current_thread
 from flask_wtf import FlaskForm
+from sqlalchemy.sql.sqltypes import String
 from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 
@@ -25,3 +27,14 @@ class RegisterForm(FlaskForm):
 
     #submit button
     submit = SubmitField("Register")
+
+class eventsForm(FlaskForm):
+    name = StringField('Evemt', validators=[InputRequired()])
+    description = TextAreaField('Description', validators=[InputRequired()])
+    image = StringField('Cover Image', validators=[InputRequired()])
+    currency = StringField('Currency', validators=[InputRequired()])
+    submit = SubmitField("Create")
+
+class CommentForm(FlaskForm):
+    text = TextAreaField('Comment', [InputRequired()])
+    submit = SubmitField('Create')
