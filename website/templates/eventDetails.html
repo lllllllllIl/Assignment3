@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
 
-
+  {% block header %}
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -48,7 +48,9 @@
     </div>
   </nav>
 </header>
+{% endblock %}
 
+{% block content %}
 <body>
 
   <div class="container-fluid">
@@ -107,7 +109,7 @@
               <h2>Comments</h1>
             </div>
           </div>
-
+          {% endblock %}
          <!-- <div>
             {{wtf.quick_form(form, "/events/{0}/comment".format(1))}}
           </div>
