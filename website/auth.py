@@ -71,7 +71,8 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return 'You have been logged out'
+    flash('Successfully logged out')
+    return redirect(url_for('main.index'))
 
 #Creating the access and determining the acces controls
 ACCESS = {

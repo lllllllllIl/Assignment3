@@ -32,9 +32,3 @@ def login():
     session['email'] = email
 
     return render_template('login.html')
-
-@bp.route('/logout.html')
-def logout():
-    if 'email' in session:
-        session.pop('email', None)
-    return 'Session has been cleared'
