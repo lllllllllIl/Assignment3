@@ -35,6 +35,7 @@ def login():
         if error is None:
             #all good, set the login_user of flask_login to manage the user
             login_user(u1)
+            flash(f'Successfully logged in! Hello {u1.name}', 'success')
             return redirect(url_for('main.index'))
         else:
             flash(error)
@@ -71,23 +72,8 @@ def register():
 def logout():
     logout_user()
     return 'You have been logged out'
-#Creating login user 
-bp.route('/login', methods=['GET', 'POST'])
-def login_user():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
 
-        try:
-            if User.is_login_valid(email, password):
-                session['email'] = email
-                return redirect(url_for("home"))
-        except Exception as e:
-            return render_template("users/login_error.jinja2")
-        
-    return render_template("'user.html', form=login_form, heading='Login'")
-
-#Creating the access and determining the acces controls
+#Creating the access and determining the access controls
 ACCESS = {
     'guest': 0,
     'user': 1,
