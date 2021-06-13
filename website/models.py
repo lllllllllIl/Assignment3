@@ -15,6 +15,7 @@ class Users(db.Model, UserMixin):
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     admin = db. Column(db.Boolean)
+    comments = db.relationship('Comments', backref='user')
 
 class Events (db.Model):
     __tablename__='Events'
