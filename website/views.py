@@ -10,7 +10,7 @@ bp = Blueprint('main', __name__)
 def index():
     Event = Events.query.all()
 
-    return render_template('index.html', Event=Events)
+    return render_template('index.html', Events=Events)
 
 
 @bp.route('/eventCreation.html')
@@ -26,7 +26,7 @@ def eventCreation():
 
 @bp.route('/eventDetails.html')
 def eventDetails():
-    return render_template('eventDetails.html')
+    return render_template('eventDetails.html', Events=Events)
 
 @bp.route('/login.html', methods=['GET', 'POST'])
 def login():
