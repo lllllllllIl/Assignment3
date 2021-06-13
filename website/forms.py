@@ -36,7 +36,8 @@ class EventsForm(FlaskForm):
     name = StringField('Evemt', validators=[InputRequired()])
     description = TextAreaField('Description', validators=[InputRequired()])
     image = StringField('Cover Image', validators=[InputRequired()])
-    currency = StringField('Currency', validators=[InputRequired()])
+    date = StringField('Event Date', validators=[InputRequired()])
+    status = StringField('Event Status', validators=[InputRequired()])
     submit = SubmitField("Create")
 
 class CommentForm(FlaskForm):

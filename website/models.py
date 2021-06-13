@@ -25,6 +25,8 @@ class Events (db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     date = db.Column(db.DateTime)
+    ticketQTY = db.Column(db.DateTime)
+    status = db.Column(db.String(20))
     comments = db.relationship('Comments', backref='event')
 
 def __repr__(self): 
