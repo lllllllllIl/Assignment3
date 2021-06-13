@@ -34,6 +34,9 @@
           {% elif current_user.is_authenticated %}
           <button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="#staticmodal">Book
             Now!</button>
+          {% else %}
+          <a href="{{ url_for ('auth.login') }}" class="btn btn-booknow" tabindex="-1" role="button"
+            aria-disabled="true">Log in to book tickets</a>
           {% endif %}
           <div class="modal fade" id="staticmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
