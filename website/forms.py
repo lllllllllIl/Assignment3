@@ -26,8 +26,10 @@ class RegisterForm(FlaskForm):
                   EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
 
-    #submit button
+    # sets admin to 0
     submitCustomer = SubmitField("Register As Customer")
+
+    # sets admin to 1
     submitAdmin = SubmitField("Register As Admin")
 
 class EventsForm(FlaskForm):

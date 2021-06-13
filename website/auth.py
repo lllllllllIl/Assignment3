@@ -15,8 +15,6 @@ from flask_login import UserMixin
 #create a blueprint
 bp = Blueprint('auth', __name__)
 
-
-
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm()
