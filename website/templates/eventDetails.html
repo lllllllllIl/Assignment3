@@ -67,6 +67,18 @@
               <h2>Comments</h1>
             </div>
           </div>
+
+          <div>
+            {{wtf.quick_form(form, "/Events/{0}/Comments".format(1))}}
+          </div>
+
+          {% for comment in Events.comments %}
+          <div class="row border-bottom">
+            <div class="col-md-12">
+              <b>{{comment.user}}<span class="ml-2 text-muted">{{comment.created_at}}</span></b>
+              <p>{{comment.text}}</p>
+            </div>
+          </div>
           {% endblock %}
 
 
