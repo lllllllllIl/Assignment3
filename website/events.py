@@ -20,7 +20,9 @@ def create():
         event = Events(name=form.name.data,
                         description=form.description.data,
                         image=form.image.data,
-                        currency=form.currency.data)
+                        date=form.date.data,
+                        ticketQty=form.ticketQTY.data,
+                        status=form.status.data)
         db.session.add(event)
         db.session.commit()
         return redirect(url_for('events.create'))

@@ -3,6 +3,7 @@ from threading import current_thread
 from flask_wtf import FlaskForm
 from sqlalchemy.sql.sqltypes import String
 from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
+from wtforms.fields.core import IntegerField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from wtforms.widgets.core import CheckboxInput
 
@@ -38,6 +39,7 @@ class EventsForm(FlaskForm):
     image = StringField('Cover Image', validators=[InputRequired()])
     date = StringField('Event Date', validators=[InputRequired()])
     status = StringField('Event Status', validators=[InputRequired()])
+    ticketQTY = IntegerField('Ticket Quantity', validator=[InputRequired])
     submit = SubmitField("Create")
 
 class CommentForm(FlaskForm):
