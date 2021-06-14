@@ -8,7 +8,7 @@ class Users(db.Model, UserMixin):
     __tablename__='Users'
     __table_args__ = {'extend_existing': True}
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
@@ -24,7 +24,7 @@ class Events (db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     date = db.Column(db.String(10))
-    ticketQTY = db.Column(db.Integer()) 
+    ticketQTY = db.Column(db.Integer) 
     status = db.Column(db.String(20))
     comments = db.relationship('Comments', backref='event')
 
