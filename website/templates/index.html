@@ -2,18 +2,64 @@
 
 
 {% block content %}
-<div class="card-group">
-  {% for event in events %}
-  <div class="card mx-3">
-    <img class="card-img-top" : src="{{events.image}}" alt="eventimg">
-    <div class="card-body">
-      <h5 class="card-title">{{event.name}}</h5>
-      <p class="card-text">{{event.description}}</p>
-      <a href="{{url_for('events.show', id=events.id)}}" class="btn btn-primary">View Destination</a>
+<div class="container-fluid p-10">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
     </div>
-    <div class="card-footer"><small class="text-muted">STATUS: {{events.status}}</small></div>
+    <div class="carousel-inner">
+      <div class="carousel-item active  ratio ratio-21x9">
+        <img src="/static/img/carousel1.jpg" class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item  ratio ratio-21x9">
+        <img src="/static/img/carousel2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item  ratio ratio-21x9">
+        <img src="/static/img/carousel3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  {% endfor %}
 </div>
+
+<div class="cat-wrap">
+  <h1 style="font-size:60px;">FEATURED EVENTS</h1>
+  <input type="radio" id="all" name="genre" />
+  <label for="all">All</label>
+  <input type="radio" id="rock" name="genre" />
+  <label for="rock">Rock</label>
+  <input type="radio" id="pop" name="genre" />
+  <label for="pop">Pop</label>
+  <input type="radio" id="edm" name="genre" />
+  <label for="edm">EDM</label>
+
+  <div class="card-group">
+    {% for event in events %}
+    <div class="card mx-3">
+      <img class="card-img-top" : src="{{event.image}}" alt="eventimg">
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <a href="{{url_for('events.show', id=event.id)}}" class="btn btn-primary">View Destination</a>
+      </div>
+      <div class="card-footer"><small class="text-muted">STATUS: {{event.status}}</small></div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
-  {% endblock %}
+{% endblock %}

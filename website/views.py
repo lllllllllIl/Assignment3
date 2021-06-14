@@ -8,9 +8,9 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def index():
-    Event = Events.query.all()
+    events = Events.query.all()
 
-    return render_template('index.html', Events=Events)
+    return render_template('index.html', events=events)
 
 
 @bp.route('/eventCreation.html')
