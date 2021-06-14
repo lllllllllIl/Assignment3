@@ -142,6 +142,7 @@ footer
     height: 100px;
     width: 100%;
     overflow: hidden;
+    margin-top: auto;
 }
 
 html 

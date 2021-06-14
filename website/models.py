@@ -23,8 +23,8 @@ class Events (db.Model):
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
-    date = db.Column(db.DateTime)
-    ticketQTY = db.Column(db.DateTime)
+    date = db.Column(db.String(10))
+    ticketQTY = db.Column(db.Integer()) 
     status = db.Column(db.String(20))
     comments = db.relationship('Comments', backref='event')
 

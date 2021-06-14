@@ -85,178 +85,20 @@
  
     <div class="clr"></div>
 
-    <div class="cat-card rock">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/rock1.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Watch AC/DC perform their recent hit album Power Up live!.</p>
-          <h5>Booked!</h5>
-        </div>
+  <div class="card-group">
+
+    {% for event in Events %}
+    <div class="card mx-3">
+      <img class="card-img-top" : src="{{event.image}}" alt="eventimg">
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <a href="{{url_for('event.show', id=event.id)}}" class="btn btn-primary">View Event</a>
       </div>
+      <div class="card-footer"><small class="text-muted">STATUS: {{event.status}}</small></div>
     </div>
-
-    <div class="cat-card rock">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/rock2.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card pop">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/pop4.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Cancel!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card rock">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/rock3.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Cancelled!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card rock">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/rock4.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="cat-card pop">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/pop1.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card edm">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/edm1.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card pop">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/pop2.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card pop">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/pop3.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Booked!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card edm">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/edm2.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Inactive!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card edm">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/edm3.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Upcoming!</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="cat-card edm">
-      <div class="card">
-        <button type="button" href="eventDetails.html">
-          <a class="link" href="eventDetails.html"><img src="static/img/edm4.jpg" class="card-img-top img-fluid"
-              alt="Responsive image"></a>
-        </button>
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <h5>Cancelled!</h5>
-        </div>
-      </div>
-    </div>
-
+    {% endfor %}
+  </div>
   </div>
 
-  
-  <div class="clr"></div>
-
-{% endblock %}
+  {% endblock %}

@@ -6,7 +6,9 @@ from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
 from wtforms.fields.core import IntegerField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from wtforms.widgets.core import CheckboxInput
+from flask_wtf.file import FileRequired, FileField, FileAllowed
 
+ALLOWED_FILES = {'png','jpg','PNG','JPG'}
 
 #creates the login information
 class LoginForm(FlaskForm):
@@ -34,9 +36,9 @@ class RegisterForm(FlaskForm):
     submitAdmin = SubmitField("Register As Admin")
 
 class EventsForm(FlaskForm):
-    name = StringField('Evemt', validators=[InputRequired()])
+    name = StringField('Event', validators=[InputRequired()])
     description = TextAreaField('Description', validators=[InputRequired()])
-    image = StringField('Cover Image', validators=[InputRequired()])
+    image = FileField('Cover Image', validators=[FileRequired(message='File Required'), FileAllowed(ALLOWED_FILES, message= 'Only supports png, jpg, PNG , JPG')])
     date = StringField('Event Date', validators=[InputRequired()])
     status = StringField('Event Status', validators=[InputRequired()])
     ticketQTY = IntegerField('Ticket Quantity', validators=[InputRequired()])
