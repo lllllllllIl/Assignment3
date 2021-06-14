@@ -1,13 +1,11 @@
-### this would go into a models.py or something similar ###
 from . import db
-#We use ev_ent because event is a used term
 from datetime import datetime
 from sqlalchemy.types import Boolean
 from flask_login import UserMixin
 
 
 class Users(db.Model, UserMixin):
-    __tablename__='Users' # good practice to specify table name
+    __tablename__='Users'
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -54,21 +52,4 @@ class Comments (db.Model):
     event_id = db.Column(db.Integer,db.ForeignKey('Events.id'))
 def __repr__(self):
     return "<Comment: {}>".format(self.text)
-
-
-
-# class created (db.Model):
-#      __tablename__ = 'Creted events'
-
-#      __table_args__ = {'extend_existing': True}
-
-#      event_id = db.Column(db.Integer, db.ForeignKey('Events.id'))
-#      creator = db.Column(db.String)
-#      Date_Created= db.Column(db.DateTime, default=datetime.now())
-
-# class created (db.Model):
-#      __tablename__ = 'Creted events'
-#      event_id = db.Column(db.Integerm, db.ForeignKey('Events.id'))
-#      creator = db.Column(db.String)
-#      Date_Created= db.Column(db.DateTime, default=datetime.now())
 

@@ -16,7 +16,7 @@ def create():
     print("Method type: ", request.method)
     form = EventsForm()
 
-    if form.validate_on_submit():
+    if (form.validate_on_submit() == True):
         event = Events(name=form.name.data,
                         description=form.description.data,
                         image=form.image.data,

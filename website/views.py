@@ -16,12 +16,6 @@ def index():
 @bp.route('/eventCreation.html')
 def eventCreation():
 
-    isAdmin = request.form.get('admin')
-    if isAdmin == 0 or NullType:
-        redirect(url_for('main.index'))
-
-
-    
     return render_template('eventCreation.html')
 
 @bp.route('/eventDetails.html')
@@ -30,8 +24,6 @@ def eventDetails():
 
 @bp.route('/login.html', methods=['GET', 'POST'])
 def login():
-    # if 'email' in session:
-    #   return redirect('/')
     
     email = request.values.get('email')
     pwd = request.values.get('pwd')
