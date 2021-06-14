@@ -27,6 +27,7 @@
               <p>{{event.description}}</p>
               <p><b>Tickets Available:</b> {{event.ticketQTY}}</p>
               <p><b>Event Date:</b> {{event.date}}</p>
+              <p><b>Created by:</b> {{event.users.name}}</p>
               {% if current_user.admin == 1 %}
               <a href="{{ url_for ('main.eventCreation') }}" class="btn btn-booknow" tabindex="-1" role="button"
                 aria-disabled="true">Edit event</a>
@@ -54,8 +55,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary">Book</button>
+                      <button type="button" class="btn btn-booknow" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-booknow">Book</button>
                     </div>
                   </div>
                 </div>
