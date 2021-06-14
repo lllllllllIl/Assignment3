@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .models import Events, Comments 
+from .models import Events, Comments, Users 
 from .forms import EventsForm, CommentForm
+from flask_login import current_user
 from . import db
 from werkzeug.utils import secure_filename
 import os
@@ -35,7 +36,8 @@ def create():
                         image=db_file_path,
                         date=events_form.date.data,
                         ticketQTY=events_form.ticketQTY.data,
-                        status=events_form.status.data)
+                        status=events_form.status.data,
+                        users=current_user)
         db.session.add(event)
         db.session.commit()
         flash(f'Successfully Created {events_form.name.data}', 'success')

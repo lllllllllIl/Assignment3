@@ -13,7 +13,8 @@ class Users(db.Model, UserMixin):
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     admin = db. Column(db.Boolean)
-    comments = db.relationship('Comments', backref='user')
+    comments = db.relationship('Comments', backref='users')
+    createdby = db.relationship('Events', backref='users')
 
 class Events (db.Model):
     __tablename__='Events'
@@ -26,7 +27,9 @@ class Events (db.Model):
     date = db.Column(db.String(10))
     ticketQTY = db.Column(db.Integer) 
     status = db.Column(db.String(20))
-    comments = db.relationship('Comments', backref='event')
+    comments = db.relationship('Comments', backref='events')
+
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
 
 def __repr__(self): 
     return "<Name: {}>".format(self.name)

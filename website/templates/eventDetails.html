@@ -27,6 +27,7 @@
               <p>{{event.description}}</p>
               <p><b>Tickets Available:</b> {{event.ticketQTY}}</p>
               <p><b>Event Date:</b> {{event.date}}</p>
+              <p><b>Created by:</b> {{event.users.name}}</p>
               {% if current_user.admin == 1 %}
               <a href="{{ url_for ('main.eventCreation') }}" class="btn btn-booknow" tabindex="-1" role="button"
                 aria-disabled="true">Edit event</a>
@@ -54,8 +55,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary">Book</button>
+                      <button type="button" class="btn btn-booknow" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-booknow">Book</button>
                     </div>
                   </div>
                 </div>
@@ -65,5 +66,22 @@
         </div>
       </div>
     </div>
+    <!--Comments-->
+    <div class="row">
+      <div class="col-md-12">
+          <h2>Comments</h1>
+      </div>
+  </div>
+  <div>
+    {{wtf.quick_form(cform, "/event/{0}/comment".format(1))}}
+  </div>
+  {% for comment in event.comments %}
+    <div class="row border-bottom">
+        <div class="col-md-12">
+            <b>{{comment.user}} <span class="ml-2 text-muted">{{comment.created_at}}</span></b>
+            <p>{{comment.text}}</p>
+        </div>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}
