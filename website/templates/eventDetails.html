@@ -66,5 +66,22 @@
         </div>
       </div>
     </div>
+    <!--Comments-->
+    <div class="row">
+      <div class="col-md-12">
+          <h2>Comments</h1>
+      </div>
+  </div>
+  <div>
+    {{wtf.quick_form(cform, "/event/{0}/comment".format(1))}}
+  </div>
+  {% for comment in event.comments %}
+    <div class="row border-bottom">
+        <div class="col-md-12">
+            <b>{{comment.user}} <span class="ml-2 text-muted">{{comment.created_at}}</span></b>
+            <p>{{comment.text}}</p>
+        </div>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}
