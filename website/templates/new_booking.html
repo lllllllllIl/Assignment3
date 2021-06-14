@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,61 +47,32 @@
     </nav>
 
 </header>
-
 <body>
-    <h1> Current Bookings</h1>
-    {{ Table }}
+    <h1>Create Booking</h1>
+    {% ""}
+    <form method = post>
+      <dl>
+          <!--This puts the table values in list form on this page-->
+            {{render_feild(form.user)}}
+            {{render_feild(form.eventname)}}
+            {{render_feild(form.ticketqty)}}
+            {{render_feild(form.user)}}
+            {{render_feild(form.confirm)}}
+
+      </dl>
 
 
 
-    <!--
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h1>Booking history</h1>
-                </div>
-            </div>
-        </div>
 
-    </div>
-    <div class="container-fluid">
-        <div class="col-8">
-            <div class="row">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Event Name </th>
-                            <th scope="col">Date booked</th>
-                            <th scope="col">Event</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">#1212</th>
-                            <td>AC/DC</td>
-                            <td>19/03/21</td>
-                            <td>
-                                <img src="img/rock1.jpg" width="200" height="200" class="rounded float-start"
-                                    alt="Not working lmao">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#1120</th>
-                            <td>Daft Punk</td>
-                            <td>05/01/2021</td>
-                            <td>
-                                <img src="img/edm1.jpg" width="200" height="200" class="rounded float-start"
-                                alt="Not working lmao">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
--->
+
+    </form>
+
+
+
+
+
+
+
     <footer class="text-center text-white" style="background-color: #272727;">
 
         <div class="container p-4 pb-0">
@@ -121,6 +92,6 @@
         </div>
     </footer>
 
-</body>
 
+</body>
 </html>

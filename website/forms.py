@@ -47,3 +47,9 @@ class EventsForm(FlaskForm):
 class CommentForm(FlaskForm):
     text = TextAreaField('Comment', [InputRequired()])
     submit = SubmitField('Create')
+
+class bookform(FlaskForm):
+    username = StringField('user')
+    eventname = StringField('eventname')
+    ticketqty = IntegerField('ticket qunatity')
+    confirm = SubmitField("create")

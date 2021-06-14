@@ -32,3 +32,10 @@ def login():
     session['email'] = email
 
     return render_template('login.html')
+
+
+@bp.route('/new_booking', methods=['GET','POST'])
+def new_booking():
+    form = bookForm(request.form)
+    if request.method== 'post' and form.validate():
+        booking = booking()
