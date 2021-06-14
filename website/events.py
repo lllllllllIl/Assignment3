@@ -14,20 +14,20 @@ def show(id):
 @bp.route('/create', methods=['GET', 'POST'])
 def create():
     print("Method type: ", request.method)
-    form = EventsForm()
+    events_form = EventsForm()
 
-    if (form.validate_on_submit() == True):
-        event = Events(name=form.name.data,
-                        description=form.description.data,
-                        image=form.image.data,
-                        date=form.date.data,
-                        ticketQty=form.ticketQTY.data,
-                        status=form.status.data)
+    if (events_form.validate_on_submit() == True):
+        event = Events(name=events_form.name.data,
+                        description=events_form.description.data,
+                        image=events_form.image.data,
+                        date=events_form.date.data,
+                        ticketQty=events_form.ticketQTY.data,
+                        status=events_form.status.data)
         db.session.add(event)
         db.session.commit()
         return redirect(url_for('events.create'))
 
-    return render_template('templates/eventCreation.html', form=form)
+    return render_template('templates/eventCreation.html', form=events_form)
 
 def get_event():
     b_desc = """ACDC new up and coming show, for sure to 

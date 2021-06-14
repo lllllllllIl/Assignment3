@@ -39,7 +39,7 @@ class EventsForm(FlaskForm):
     image = StringField('Cover Image', validators=[InputRequired()])
     date = StringField('Event Date', validators=[InputRequired()])
     status = StringField('Event Status', validators=[InputRequired()])
-    ticketQTY = IntegerField('Ticket Quantity', validator=[InputRequired])
+    ticketQTY = IntegerField('Ticket Quantity', validators=[InputRequired()])
     submit = SubmitField("Create")
 
 class CommentForm(FlaskForm):

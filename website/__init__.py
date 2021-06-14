@@ -48,6 +48,9 @@ def create_app():
     def load_user(user_id):
         return Users.query.get(int(user_id))
 
+    from . import events
+    app.register_blueprint(events.bp)
+
 
     return app
 
