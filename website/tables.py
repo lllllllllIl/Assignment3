@@ -1,6 +1,6 @@
 from flask_table  import Table, Col 
 
-class booking (Table):
+class booking_results (Table):
     #id = Col('id', show = false)
     username = ('users')
     eventname = ('Event Name')
