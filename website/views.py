@@ -33,9 +33,8 @@ def login():
 
     return render_template('login.html')
 
-
-@bp.route('/new_booking', methods=['GET','POST'])
-def new_booking():
-    form = bookForm(request.form)
-    if request.method== 'post' and form.validate():
-        booking = booking()
+ #Attempted
+#@bp.route('/new_booking', methods=['GET','POST'])
+#def new_booking():
+   
+   #return render_template('new_booking.html',form=form )

@@ -49,16 +49,22 @@
 </header>
 <body>
     <h1>Create Booking</h1>
-    {% ""}
+    {% "from"form.py"}
     <form method = post>
       <dl>
           <!--This puts the table values in list form on this page-->
-            {{render_feild(form.user)}}
+            {{render_feild(form.orderid)}}
             {{render_feild(form.eventname)}}
             {{render_feild(form.ticketqty)}}
-            {{render_feild(form.user)}}
+            {{render_feild(form.price)}}
+            {{render_feild(form.user_name)}}
             {{render_feild(form.confirm)}}
-
+            
+            orderid = StringField('Order ID')
+            eventname = StringField('eventname')
+            ticketqty = IntegerField('ticket qunatity')
+            price = IntegerField('Ticket Price')
+            confirm = SubmitField("create")
       </dl>
 
 

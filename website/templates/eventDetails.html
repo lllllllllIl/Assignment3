@@ -32,8 +32,9 @@
               <a href="{{ url_for ('main.eventCreation') }}" class="btn btn-booknow" tabindex="-1" role="button"
                 aria-disabled="true">Edit event</a>
               {% elif current_user.is_authenticated %}
-              <button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="#staticmodal">Book
-                Now!</button>
+              <a href="{{url_for('.new_booking')}}" class= "btn btn-bookniw " role="button">Book Now</a>
+              <!--<button type="button" class="btn btn-booknow" data-bs-toggle="modal" data-bs-target="#staticmodal">Book
+                Now!</button>--> 
               {% else %}
               <a href="{{ url_for ('auth.login') }}" class="btn btn-booknow" tabindex="-1" role="button"
                 aria-disabled="true">Log in
